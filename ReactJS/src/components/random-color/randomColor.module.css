@@ -1,0 +1,85 @@
+.wrapper {
+  height: 200px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: background-color 0.5s ease;
+  border: 2px solid #ddd;
+}
+
+.controls {
+  max-width: 600px;
+  margin: 30px auto 10px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.buttonCss {
+  padding: 12px 24px;
+  background-color: #e23744;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  min-width: 140px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.buttonCss:hover,
+.buttonCss[aria-pressed="true"] {
+  background-color: #c82333;
+  box-shadow: 0 4px 12px rgba(200, 35, 51, 0.6);
+}
+
+.colorCode {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #333;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  position: relative;
+}
+
+.colorCode span {
+  font-family: monospace;
+  background-color: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-left: 8px;
+  color: #111;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  user-select: text;
+}
+
+.colorCode:focus {
+  box-shadow: 0 0 0 3px #e23744aa;
+  border-radius: 8px;
+}
+
+.copyMessage {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #4caf50;
+  margin-left: 8px;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copyMessage.visible {
+  opacity: 1;
+}

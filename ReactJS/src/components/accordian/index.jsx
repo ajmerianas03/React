@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import items from "./items";
-import "./style.css";
+import styles from "./Accordion.module.css";
 
 const Accordion = () => {
   const [selected, setSelected] = useState(null);
@@ -32,28 +32,44 @@ const Accordion = () => {
     return isItemExpanded(id) ? "-" : "+";
   };
 
+  const toggleSelectionMode = () => {
+    setMultiSelect((prev) => {
+      if (prev) {
+        setMultiple([]);
+      } else {
+        setSelected(null);
+      }
+      return !prev;
+    });
+  };
+
   return (
-    <div className="wrapper">
-      <button onClick={() => setMultiSelect(!multiSelect)} style={{ marginBottom: "20px" }}>
+    <div className={styles.wrapper}>
+      <button
+        className={styles.buttonCss}
+        onClick={toggleSelectionMode}
+        style={{ marginBottom: "20px" }}
+      >
         {multiSelect ? "Disable Multi Selection" : "Enable Multi Selection"}
       </button>
-      <div className="accordion">
+
+      <div className={styles.accordion}>
         {items && items.length > 0 ? (
           items.map((itemData) => (
-            <div className="item" key={itemData.id}>
+            <div className={styles.item} key={itemData.id}>
               <div
                 onClick={() =>
                   multiSelect
                     ? handleMultiSelection(itemData.id)
                     : handleSingleSelection(itemData.id)
                 }
-                className="title"
+                className={styles.title}
               >
                 <h3>{itemData.question}</h3>
                 <span>{getIcon(itemData.id)}</span>
               </div>
               {isItemExpanded(itemData.id) && (
-                <div className="content">{itemData.answer}</div>
+                <div className={styles.content}>{itemData.answer}</div>
               )}
             </div>
           ))
